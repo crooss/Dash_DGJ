@@ -1,0 +1,87 @@
+/* ========================================================
+   ESTILOS GENERALES Y LAYOUT DEL DASHBOARD
+   ======================================================== */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #334155;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra Lateral (Sidebar) fija a la izquierda */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 17rem;
+    padding: 2rem 1.25rem;
+    background-color: #0f172a; /* Slate 900 */
+    color: #f8fafc;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenido Principal desplazado a la derecha */
+.content {
+    margin-left: 17rem;
+    padding: 2.5rem 3rem;
+    min-height: 100vh;
+    background-color: #f8fafc;
+}
+
+/* Enlaces de Navegación del Sidebar */
+.sidebar .nav-link {
+    color: #94a3b8;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.sidebar .nav-link:hover {
+    color: #ffffff;
+    background-color: #1e293b;
+    transform: translateX(4px);
+}
+
+.sidebar .nav-link.active {
+    color: #ffffff !important;
+    background-color: #2563eb !important; /* Azul primario */
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.25);
+}
+
+/* Tarjetas KPI */
+.kpi-card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+    }
+    .content {
+        margin-left: 0;
+        padding: 1.5rem;
+    }
+}
