@@ -66,7 +66,7 @@ grupos=datos.groupby('nombre_actividad')
 # For now, we show a simple message and a chart area
 layout = html.Div(
     [
-        create_navbar("Avance por monto ejecutado"),
+        create_navbar("Avance por actividad"),
         
         dbc.Row(
             [
@@ -78,7 +78,7 @@ layout = html.Div(
         ),
         dbc.Container(
             [
-                html.H3("Avance por monto ejecutado"),
+                html.H3("Avance por actividad"),
                 html.P(
                     "Esta sección mostrará el avance acumulado basado en el monto ejecutado de las actividades."
                 ),

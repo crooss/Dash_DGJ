@@ -12,7 +12,7 @@ app = dash.Dash(
         dbc.icons.BOOTSTRAP,        # Colección de iconos Bootstrap Icons
     ],
     suppress_callback_exceptions=True,
-    title="Panel de Control y Analítica",
+    title="Panel de Control",
 )
 
 server = app.server  # Exponer el servidor Flask subyacente (útil para despliegue en producción)
