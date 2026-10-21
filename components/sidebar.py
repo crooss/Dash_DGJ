@@ -32,7 +32,7 @@ def create_sidebar():
                             html.I(className="bi bi-currency-dollar"),
                             html.Span("Avance por monto ejecutado"),
                         ],
-                        href="/avance-monto",
+                        href="/",
                         active="exact",
                     ),
                     dbc.NavLink(
