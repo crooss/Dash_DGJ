@@ -119,8 +119,10 @@ def update_figure(_): # type: ignore
     # Format x-axis (date) display
     fig.update_xaxes(
         tickformat='%b-%Y',
-        tickangle=270,
-        title_text='Fecha'
-    )
+        tickangle=0,
+        title_text='Fecha')
+    fig.update_xaxes(
+                    dtick="M1",
+                    tickformat="%b\n%Y")
     return fig
 
