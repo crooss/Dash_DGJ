@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: dash-dgj
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:server
+    # Render provides the PORT env var. The app reads it (see modifications in app.py).
+    healthCheckPath: /
+    # Optional settings (adjust as needed):
+    # instanceCount: 1
+    # cpu: 1
+    # memory: 2GB
+    # autoDeploy: true
+
