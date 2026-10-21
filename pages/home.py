@@ -6,7 +6,7 @@ import pandas as pd
 from components.navbar import create_navbar
 
 # Registrar esta vista como página de inicio
-dash.register_page(__name__, path="/", name="Resumen General")
+dash.register_page(__name__, path="/home", name="Resumen General")
 
 # Datos de muestra
 sales_data = pd.DataFrame({

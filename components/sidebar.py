@@ -32,7 +32,15 @@ def create_sidebar():
                             html.I(className="bi bi-currency-dollar"),
                             html.Span("Avance por monto ejecutado"),
                         ],
-                        href="/avance-monto",
+                        href="/",
+                        active="exact",
+                    ),
+                    dbc.NavLink(
+                        [
+                            html.I(className="bi bi-currency-dollar"),
+                            html.Span("Avance por actividad"),
+                        ],
+                        href="/avance-actividad",
                         active="exact",
                     ),
                     dbc.NavLink(
@@ -40,7 +48,7 @@ def create_sidebar():
                             html.I(className="bi bi-grid-1x2-fill"),
                             html.Span("Resumen General"),
                         ],
-                        href="/",
+                        href="/home",
                         active="exact",
                     ),
                     dbc.NavLink(

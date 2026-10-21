@@ -56,7 +56,7 @@ fecha_max = datos["Fecha"].max()
 print(f"Fecha máxima en los datos: {fecha_max.strftime('%d-%B-%Y')}")
 
 
-dash.register_page(__name__, path="/avance-monto", name="Avance por monto ejecutado")
+dash.register_page(__name__, path="/", name="Avance por monto ejecutado")
 
 # Placeholder data: you can replace with real data source later
 # For now, we show a simple message and a chart area
@@ -95,12 +95,14 @@ def update_figure(_): # type: ignore
     fig = px.line(
                 datos,
                 x="Fecha",
-                y=["EV_acumulado"],
+                y="EV_acumulado",
                 markers=False,
                 title="Evolución de Ventas vs Objetivo",
                 template="plotly_white",
                 color_discrete_sequence=["#2563eb", "#94a3b8"], 
-                height=650,)   
+                height=650,
+                hover_data={"Fecha": "|%d-%B-%Y", "EV_acumulado": ":$,.0f"},
+)   
     fig.update_layout(title="Gráfico de avance (EV)", template="plotly_white")
     return fig
 
