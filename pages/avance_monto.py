@@ -5,8 +5,43 @@ import pandas as pd
 import plotly.express as px
 from components.navbar import create_navbar
 from data.sample_data import get_monthly_sales_summary
-from pages.home import create_kpi_card
+# from pages.home import create_kpi_card
 
+def create_kpi_card1(title, value, change, icon_class, is_positive=True):
+    """Genera una tarjeta KPI moderna."""
+    badge_color = "success" if is_positive else "danger"
+    badge_icon = "bi-arrow-up-right" if is_positive else "bi-arrow-down-right"
+
+    return dbc.Card(
+        dbc.CardBody(
+            [
+                html.Div(
+                    [
+                        html.Span(title, className="text-muted small fw-medium"),
+                        html.Div(
+                            html.I(className=f"bi {icon_class} text-primary fs-5"),
+                            className="bg-light p-2 rounded-circle d-flex align-items-center justify-content-center",
+                            style={"width": "40px", "height": "40px"},
+                        ),
+                    ],
+                    className="d-flex justify-content-between align-items-center mb-2",
+                ),
+                html.H3(value, className="fw-bold mb-2 text-dark"),
+                html.Div(
+                    [
+                        dbc.Badge(
+                            [html.I(className=f"bi {badge_icon} me-1"), change],
+                            color=badge_color,
+                            className="me-2 px-2 py-1",
+                        ),
+                        html.Small("% general", className="text-muted"),
+                    ],
+                    className="d-flex align-items-center",
+                ),
+            ]
+        ),
+        className="kpi-card h-100",
+    )
 # Register the page with Dash Pages
 # The URL path will be '/avance-monto'
 # The display name appears in the browser tab
@@ -31,10 +66,10 @@ layout = html.Div(
         
         dbc.Row(
             [
-                dbc.Col(create_kpi_card("Ingresos Totales", f"${EV_max:,.0f}", f"+{porc_avance_EV:.1f}%", "bi-currency-dollar"), md=6, lg=3, className="mb-4"),
-                dbc.Col(create_kpi_card("Fecha de corte", fecha_max.strftime('%d-%B-%Y'), "", "bi-calendar3"), md=6, lg=3, className="mb-4"),
-                # dbc.Col(create_kpi_card("Tasa de Conversión", "3.24%", "-0.4%", "bi-graph-up-arrow", is_positive=False), md=6, lg=3, className="mb-4"),
-                # dbc.Col(create_kpi_card("Pedidos Activos", "312", "+15.3%", "bi-bag-check"), md=6, lg=3, className="mb-4"),
+                dbc.Col(create_kpi_card1("Ingresos Totales", f"${EV_max:,.0f}", f"+{porc_avance_EV:.1f}%", "bi-currency-dollar"), md=6, lg=3, className="mb-4"),
+                dbc.Col(create_kpi_card1("Fecha de corte", fecha_max.strftime('%d-%B-%Y'), "", "bi-calendar3"), md=6, lg=3, className="mb-4"),
+                # dbc.Col(create_kpi_card1("Tasa de Conversión", "3.24%", "-0.4%", "bi-graph-up-arrow", is_positive=False), md=6, lg=3, className="mb-4"),
+                # dbc.Col(create_kpi_card1("Pedidos Activos", "312", "+15.3%", "bi-bag-check"), md=6, lg=3, className="mb-4"),
             ]
         ),
         dbc.Container(
