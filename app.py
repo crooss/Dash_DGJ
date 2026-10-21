@@ -33,4 +33,7 @@ app.layout = html.Div(
 # 3. Punto de entrada
 if __name__ == "__main__":
     print("Iniciando Dashboard en http://127.0.0.1:8050 ...")
-    app.run(debug=True, port=8050)
+    import os
+    # Render provides PORT via environment variable; default to 8050 for local dev
+    port = int(os.getenv('PORT', 8050))
+    app.run(debug=False, host='0.0.0.0', port=port)
