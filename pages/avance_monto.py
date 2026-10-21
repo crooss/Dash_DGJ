@@ -7,6 +7,8 @@ from components.navbar import create_navbar
 from data.sample_data import get_monthly_sales_summary
 # from pages.home import create_kpi_card
 
+dash.register_page(__name__, path="/", name="Avance por monto ejecutado")
+
 def create_kpi_card1(title, value, change, icon_class, is_positive=True, texto=""):
     """Genera una tarjeta KPI moderna."""
     badge_color = "success" if is_positive else "danger"
@@ -56,7 +58,6 @@ fecha_max = datos["Fecha"].max()
 print(f"Fecha máxima en los datos: {fecha_max.strftime('%d-%B-%Y')}")
 
 
-dash.register_page(__name__, path="/", name="Avance por monto ejecutado")
 
 # Placeholder data: you can replace with real data source later
 # For now, we show a simple message and a chart area
