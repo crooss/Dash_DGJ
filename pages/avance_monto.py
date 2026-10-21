@@ -103,8 +103,17 @@ def update_figure(_): # type: ignore
                 color_discrete_sequence=["#2563eb", "#94a3b8"], 
                 height=650,
                 hover_data={"Fecha": "|%d-%B-%Y", "EV_acumulado": ":$,.0f"},
-)   
+                labels={"Fecha": "Fecha", "EV_acumulado": "Monto Acumulado"} # Add labels for clarity
+            )   
     fig.update_layout(title="Gráfico de avance (EV)", template="plotly_white")
+    # Format y-axis as currency
+    fig.update_yaxes(tickprefix='$', tickformat=',')
+    # Force x-axis to display monthly ticks and format
+    fig.update_xaxes(
+        tickformat="%b-%Y", # Use standard Plotly date format for month/year
+        tickangle=270,
+        title_text='Fecha'
+    )
     # Format y-axis as currency
     fig.update_yaxes(tickprefix='$', tickformat=',')
     # Format x-axis (date) display
