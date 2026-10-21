@@ -7,7 +7,7 @@ from components.navbar import create_navbar
 from data.sample_data import get_monthly_sales_summary
 # from pages.home import create_kpi_card
 
-def create_kpi_card1(title, value, change, icon_class, is_positive=True):
+def create_kpi_card1(title, value, change, icon_class, is_positive=True, texto=""):
     """Genera una tarjeta KPI moderna."""
     badge_color = "success" if is_positive else "danger"
     badge_icon = "bi-arrow-up-right" if is_positive else "bi-arrow-down-right"
@@ -34,7 +34,7 @@ def create_kpi_card1(title, value, change, icon_class, is_positive=True):
                             color=badge_color,
                             className="me-2 px-2 py-1",
                         ),
-                        html.Small("% general", className="text-muted"),
+                        html.Small(texto, className="text-muted"),
                     ],
                     className="d-flex align-items-center",
                 ),
@@ -66,8 +66,8 @@ layout = html.Div(
         
         dbc.Row(
             [
-                dbc.Col(create_kpi_card1("Ingresos Totales", f"${EV_max:,.0f}", f"+{porc_avance_EV:.1f}%", "bi-currency-dollar"), md=6, lg=3, className="mb-4"),
-                dbc.Col(create_kpi_card1("Fecha de corte", fecha_max.strftime('%d-%B-%Y'), "", "bi-calendar3"), md=6, lg=3, className="mb-4"),
+                dbc.Col(create_kpi_card1("Ingresos Totales", f"${EV_max:,.0f}", f"+{porc_avance_EV:.1f}%", "bi-currency-dollar", texto='% general'), md=6, lg=3, className="mb-4"),
+                dbc.Col(create_kpi_card1("Fecha de corte", fecha_max.strftime('%d-%B-%Y'), "", "bi-calendar3", texto='fecha'), md=6, lg=3, className="mb-4"),
                 # dbc.Col(create_kpi_card1("Tasa de Conversión", "3.24%", "-0.4%", "bi-graph-up-arrow", is_positive=False), md=6, lg=3, className="mb-4"),
                 # dbc.Col(create_kpi_card1("Pedidos Activos", "312", "+15.3%", "bi-bag-check"), md=6, lg=3, className="mb-4"),
             ]

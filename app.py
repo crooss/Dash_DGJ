@@ -36,4 +36,4 @@ if __name__ == "__main__":
     import os
     # Render provides PORT via environment variable; default to 8050 for local dev
     port = int(os.getenv('PORT', 8050))
-    app.run(debug=False, host='0.0.0.0', port=port)
+    app.run(debug=True, host='localhost', port=port)
