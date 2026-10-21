@@ -20,6 +20,7 @@ def get_monthly_sales_summary():
     datos_EV = datos_EV.dropna(subset=["Fecha", "EV"])
     # Ordenar por fecha ascendente
     datos_EV = datos_EV.sort_values("Fecha")
+    datos_EV = datos_EV[datos_EV['EV'] > 0]
     # Calcular acumulado de EV
     datos_EV["EV_acumulado"] = datos_EV["EV"].cumsum()
     
