@@ -125,5 +125,7 @@ def update_figure(_): # type: ignore
                             ),
         ))
     fig.update_layout(title="EV acumulado por actividad", template="plotly_white",colorway=px.colors.qualitative.Set1)
+    fig.update_yaxes(tickprefix='$', tickformat=',')
+
     return fig
 

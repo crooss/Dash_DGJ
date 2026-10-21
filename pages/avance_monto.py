@@ -105,5 +105,13 @@ def update_figure(_): # type: ignore
                 hover_data={"Fecha": "|%d-%B-%Y", "EV_acumulado": ":$,.0f"},
 )   
     fig.update_layout(title="Gráfico de avance (EV)", template="plotly_white")
+    # Format y-axis as currency
+    fig.update_yaxes(tickprefix='$', tickformat=',')
+    # Format x-axis (date) display
+    fig.update_xaxes(
+        tickformat='%b-%Y',
+        tickangle=270,
+        title_text='Fecha'
+    )
     return fig
 
