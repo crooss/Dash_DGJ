@@ -10,5 +10,5 @@ services:
     # instanceCount: 1
     # cpu: 1
     # memory: 2GB
-    # autoDeploy: true
+    autoDeploy: true
 
