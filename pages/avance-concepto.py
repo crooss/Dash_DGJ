@@ -86,7 +86,7 @@ def update_figure(_): # type: ignore
             y=df_etapa["cod_act"],
             orientation="h",
             name=etapa,
-            text=df_etapa["%av"].map(lambda v: f"{v:.2%}"),
+            text=df_etapa["%av"].map(lambda v: "" if v==0 else f"{v:.2%}"),
             textposition="auto",
             customdata=df_etapa[["ETAPA", "%av"]].values,
             hovertemplate="<b>Actividad</b>=%{y}<br><b>Etapa</b>=%{customdata[0]}<br>% Avance=%{customdata[1]:.2%}<extra></extra>",
@@ -99,11 +99,12 @@ def update_figure(_): # type: ignore
             )
         ))
 
-    fig.add_vline(x=1,
+    x_vline=1
+    fig.add_vline(x=x_vline,
                 line_dash="dash",
-                line_color="red",
+                line_color="green",
                 line_width=2,
-                annotation_text="50%",
+                annotation_text=f"{(x_vline*100)}%",
                 annotation_position="top")
     
     buttons = [

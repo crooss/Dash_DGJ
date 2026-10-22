@@ -51,31 +51,31 @@ def create_sidebar():
                         href="/avance-concepto",
                         active="exact",
                     ),
-                    dbc.NavLink(
-                        [
-                            html.I(className="bi bi-grid-1x2-fill"),
-                            html.Span("Resumen General"),
-                        ],
-                        href="/home",
-                        active="exact",
-                    ),
-                    dbc.NavLink(
-                        [
-                            html.I(className="bi bi-graph-up"),
-                            html.Span("Analítica y Métricas"),
-                        ],
-                        href="/analytics",
-                        active="exact",
-                    ),
+                    # dbc.NavLink(
+                    #     [
+                    #         html.I(className="bi bi-grid-1x2-fill"),
+                    #         html.Span("Resumen General"),
+                    #     ],
+                    #     href="/home",
+                    #     active="exact",
+                    # ),
+                    # dbc.NavLink(
+                    #     [
+                    #         html.I(className="bi bi-graph-up"),
+                    #         html.Span("Analítica y Métricas"),
+                    #     ],
+                    #     href="/analytics",
+                    #     active="exact",
+                    # ),
 
-                    dbc.NavLink(
-                        [
-                            html.I(className="bi bi-gear-fill"),
-                            html.Span("Configuración"),
-                        ],
-                        href="/settings",
-                        active="exact",
-                    ),
+                    # dbc.NavLink(
+                    #     [
+                    #         html.I(className="bi bi-gear-fill"),
+                    #         html.Span("Configuración"),
+                    #     ],
+                    #     href="/settings",
+                    #     active="exact",
+                    # ),
 
                 ],
                 vertical=True,
@@ -93,7 +93,7 @@ def create_sidebar():
                             html.Div(
                                 [
                                     html.Div("Administrador", className="fw-semibold small text-white"),
-                                    html.Div("admin@empresa.com", className="text-secondary", style={"fontSize": "0.75rem"}),
+                                    html.Div("arturogodoy@corrosionyproteccion.com", className="text-secondary", style={"fontSize": "0.75rem"}),
                                 ],
                                 className="overflow-hidden text-truncate",
                             ),
