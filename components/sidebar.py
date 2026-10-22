@@ -45,6 +45,14 @@ def create_sidebar():
                     ),
                     dbc.NavLink(
                         [
+                            html.I(className="bi bi-graph-up"),
+                            html.Span("Avance por concepto"),
+                        ],
+                        href="/avance-concepto",
+                        active="exact",
+                    ),
+                    dbc.NavLink(
+                        [
                             html.I(className="bi bi-grid-1x2-fill"),
                             html.Span("Resumen General"),
                         ],
