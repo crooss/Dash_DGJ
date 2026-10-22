@@ -65,7 +65,13 @@ layout = html.Div(
                     f"Esta sección mostrará el avance acumulado basado en el % de avance de los conceptos."
                 ),
                 # Example placeholder graph
-                dcc.Graph(id="avance-concepto-graph"),
+                dcc.Loading(
+                    id="loading-avance-concepto",
+                    type="circle",
+                    children=html.Div([
+                        dcc.Graph(id="avance-concepto-graph")
+                    ])
+                ),
             ],
             fluid=True,
             className="mt-4",

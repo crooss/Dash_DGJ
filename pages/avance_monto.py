@@ -79,8 +79,14 @@ layout = html.Div(
                 html.P(
                     "Esta sección mostrará el avance acumulado basado en el monto ejecutado de las actividades."
                 ),
-                # Example placeholder graph
-                dcc.Graph(id="avance-monto-graph"),
+                dcc.Loading(
+                    id="loading-avance-concepto",
+                    type="circle",
+                    children=html.Div([
+                        dcc.Graph(id="avance-monto-graph")
+                    ])
+                ),
+                # dcc.Graph(id="avance-monto-graph"),
             ],
             fluid=True,
             className="mt-4",
