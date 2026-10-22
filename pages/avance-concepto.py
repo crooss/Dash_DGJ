@@ -79,7 +79,7 @@ def update_figure(_): # type: ignore
     import plotly.graph_objects as go
     fig = go.Figure()
     for etapa in etapas:
-        df_etapa = summary_plot[summary_plot["ETAPA"] == etapa].sort_values("cod_act", ascending=False)
+        df_etapa = summary_plot[summary_plot["ETAPA"] == etapa].sort_index(ascending=False)
 
         fig.add_trace(go.Bar(
             x=df_etapa["%av"],
