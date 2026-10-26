@@ -51,6 +51,14 @@ def create_sidebar():
                         href="/avance-concepto",
                         active="exact",
                     ),
+                    dbc.NavLink(
+                        [
+                            html.I(className="bi bi-graph-up"),
+                            html.Span("Avance por mes"),
+                        ],
+                        href="/avance-waterfall",
+                        active="exact",
+                    ),
                     # dbc.NavLink(
                     #     [
                     #         html.I(className="bi bi-grid-1x2-fill"),
