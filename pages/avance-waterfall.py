@@ -77,7 +77,6 @@ def update_figure(_): # type: ignore
     y_max = balance["EV"].max()
     padding = (y_max - y_min) * 0.2 if y_max != y_min else 1
     fig.update_yaxes(range=[0, y_max + padding])
-    fig.update_yaxes(tickprefix='$', tickformat=',')
-        
-        
+    fig.update_yaxes(tickprefix='$', tickformat=',') 
+
     return fig
