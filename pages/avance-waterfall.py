@@ -59,11 +59,10 @@ def update_figure(_): # type: ignore
         connector={"line": {"color": "rgba(50,50,50,0.6)", "width": 1}},
         increasing={"marker": {"color": "#2ca02c"}},
         decreasing={"marker": {"color": "#d62728"}},
-        totals={"marker": {"color": "#1f77b4"}},
+        # totals={"marker": {"color": "#1f77b4"}},
+        totals={"marker": {"color": "#3c31b7"}},
         hovertemplate="<b>Mes</b>: %{x}<br><b>EV</b>: $%{y:,.0f}<extra></extra>",
         ))
-    
-    # fig=
 
     fig.update_layout(title="Waterfall de EV por mes",
                     template="plotly_white",
