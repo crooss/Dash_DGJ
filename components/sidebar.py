@@ -12,7 +12,7 @@ def create_sidebar():
             html.Div(
                 [
                     html.I(className="bi bi-speedometer2 fs-3 text-primary me-2"),
-                    html.H4("Mi Dashboard", className="m-0 fw-bold text-white"),
+                    html.H4("Dashboard", className="m-0 fw-bold text-white"),
                 ],
                 className="d-flex align-items-center mb-4 pb-3 border-bottom border-secondary border-opacity-25",
             ),
