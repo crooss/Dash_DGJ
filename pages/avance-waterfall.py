@@ -29,10 +29,9 @@ layout = html.Div(
                 dcc.Loading(
                     id="loading-avance-waterfall",
                     type="circle",
-                    children=html.Div([
-                        dcc.Graph(id="avance-waterfall-graph")
-                    ])
-                ),
+                    children=html.Div([dcc.Graph(id="avance-waterfall-graph")],
+                    style={"border": "2px solid #ccc", "borderRadius": "12px", "padding": "4px"})
+                    )
                 # dcc.Graph(id="avance-monto-graph"),
             ],
             fluid=True,

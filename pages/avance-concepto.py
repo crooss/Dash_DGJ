@@ -68,9 +68,8 @@ layout = html.Div(
                 dcc.Loading(
                     id="loading-avance-concepto",
                     type="circle",
-                    children=html.Div([
-                        dcc.Graph(id="avance-concepto-graph")
-                    ])
+                    children=html.Div([dcc.Graph(id="avance-concepto-graph")],
+                    style={"border": "2px solid #ccc", "borderRadius": "12px", "padding": "4px"})
                 ),
             ],
             fluid=True,
