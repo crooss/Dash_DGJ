@@ -43,7 +43,7 @@ layout = html.Div(
 
 balance=pd.read_excel(r"data/Reporte de Actividades Diarias CPI.xlsx", sheet_name="balance")
 balance=balance.sort_values('fecha')
-
+print(balance)
 
 
 @callback(Output("avance-waterfall-graph", "figure"), Input("avance-waterfall-graph", "id"))
@@ -68,7 +68,7 @@ def update_figure(_): # type: ignore
                     template="plotly_white",
                     xaxis_title="Mes",
                     yaxis_title="EV",
-                    showlegend=False,
+                    showlegend=True,
                     height=600,
                     width=1000,
                     xaxis_tickangle=-90)
@@ -78,5 +78,19 @@ def update_figure(_): # type: ignore
     padding = (y_max - y_min) * 0.2 if y_max != y_min else 1
     fig.update_yaxes(range=[0, y_max + padding])
     fig.update_yaxes(tickprefix='$', tickformat=',') 
+
+    # fig.update_layout(
+    #     xaxis=dict(
+    #         dtick="M1",
+    #         tickformat="%b %Y"
+    #     )
+    # )
+
+    # fig.update_layout(
+    #     title = 'Time Series with Custom Date-Time Format',
+    #     xaxis_tickformat = '%b %Y',
+    #     dtick=1
+    #     )
+
 
     return fig
