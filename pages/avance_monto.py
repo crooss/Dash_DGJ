@@ -23,7 +23,7 @@ def create_kpi_card1(title, value, change, icon_class, is_positive=True, texto="
                         html.Div(
                             html.I(className=f"bi {icon_class} text-primary fs-5"),
                             className="bg-light p-2 rounded-circle d-flex align-items-center justify-content-center",
-                            style={"width": "40px", "height": "40px"},
+                            style={"width": "40px", "height": "40px", "width": "fit-content"},
                         ),
                     ],
                     className="d-flex justify-content-between align-items-center mb-2",

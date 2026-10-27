@@ -86,7 +86,7 @@ layout = html.Div(
                     id="loading-avance-concepto",
                     type="circle",
                     children=html.Div([dcc.Graph(id="avance-actividad-graph")],
-                    style={"border": "2px solid #ccc", "borderRadius": "12px", "padding": "4px"})
+                    style={"border": "2px solid #ccc", "borderRadius": "12px", "padding": "4px", "width": "fit-content"})
                     ),
                 # dcc.Graph(id="avance-actividad-graph"),
             ],
@@ -101,7 +101,7 @@ layout = html.Div(
 def update_figure(_): # type: ignore
     import plotly.graph_objects as go
     fig = go.Figure()
-    fig.update_layout(height=600, width=1200)  
+    fig.update_layout(height=600, width=1100)  
         
     for grupo in grupos:
         gr=grupo[1]
@@ -132,5 +132,6 @@ def update_figure(_): # type: ignore
     fig.update_layout(title="EV acumulado por actividad", template="plotly_white",colorway=px.colors.qualitative.Set1)
     fig.update_yaxes(tickprefix='$', tickformat=',')
     fig.update_xaxes(dtick="M1",tickformat="%b\n%Y")
+
     return fig
 
