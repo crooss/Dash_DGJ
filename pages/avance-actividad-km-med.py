@@ -12,7 +12,7 @@ import warnings
 warnings.filterwarnings("ignore")
 import plotly.graph_objects as go
 
-dash.register_page(__name__, path="/avance-actividad-km-med", name="Avance por actividad")
+dash.register_page(__name__, path="/avance-actividad-km-med", name="Avance por actividad x unidad")
 
 def create_kpi_card1(title, value, change, icon_class, is_positive=True, texto=""):
     """Genera una tarjeta KPI moderna."""
@@ -92,7 +92,7 @@ layout = html.Div(
                     id="loading-avance-concepto",
                     type="circle",
                     children=html.Div([
-                        dcc.Graph(id="avance-actividad-graph")
+                        dcc.Graph(id="avance-actividad-km-med-graph")
                     ])
                 ),
                 # dcc.Graph(id="avance-actividad-graph"),
@@ -104,7 +104,7 @@ layout = html.Div(
 )
 
 # Simple callback that returns an empty figure for now
-@callback(Output("avance-actividad-graph", "figure"), Input("avance-actividad-graph", "id"))
+@callback(Output("avance-actividad-km-med-graph", "figure"), Input("avance-actividad-km-med-graph", "id"))
 def update_figure(grupos): # type: ignore
     fig = go.Figure()
     fig.update_layout(height=600, width=1200)  
