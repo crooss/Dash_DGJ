@@ -68,9 +68,9 @@ def update_figure(_): # type: ignore
                     template="plotly_white",
                     xaxis_title="Mes",
                     yaxis_title="EV",
-                    showlegend=True,
+                    showlegend=False,
                     height=600,
-                    width=1000,
+                    width=1100,
                     xaxis_tickangle=-90)
     
     y_min = balance["EV"].min()
@@ -87,10 +87,10 @@ def update_figure(_): # type: ignore
     # )
 
     # fig.update_layout(
-    #     title = 'Time Series with Custom Date-Time Format',
     #     xaxis_tickformat = '%b %Y',
-    #     dtick=1
+    #     # dtick=1
     #     )
+    fig.update_xaxes(type='category')
 
 
     return fig
