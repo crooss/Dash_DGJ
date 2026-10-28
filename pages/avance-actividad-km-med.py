@@ -62,7 +62,7 @@ datos['Avance_km'].fillna(0, inplace=True)
 datos['Avance_Med'].fillna(0, inplace=True)
 
 datos['avance']=datos['Avance_km']+datos['Avance_Med']
-print(datos)
+# print(datos)
 datos['EV_acumulado'] = datos['EV'].cumsum()
 grupos=datos.groupby('nombre_actividad')
 

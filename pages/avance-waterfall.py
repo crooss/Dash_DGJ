@@ -42,7 +42,7 @@ layout = html.Div(
 
 balance=pd.read_excel(r"data/Reporte de Actividades Diarias CPI.xlsx", sheet_name="balance")
 balance=balance.sort_values('fecha')
-print(balance)
+# print(balance)
 
 
 @callback(Output("avance-waterfall-graph", "figure"), Input("avance-waterfall-graph", "id"))

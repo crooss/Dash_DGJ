@@ -18,16 +18,16 @@ def create_kpi_card1(title, value, change, icon_class, is_positive=True, texto="
         dbc.CardBody(
             [
                 html.Div(
-                    [
-                        html.Span(title, className="text-muted small fw-medium"),
-                        html.Div(
-                            html.I(className=f"bi {icon_class} text-primary fs-5"),
-                            className="bg-light p-2 rounded-circle d-flex align-items-center justify-content-center",
-                            style={"width": "40px", "height": "40px", "width": "fit-content"},
+                        [
+                            html.Span(title, className="text-muted small fw-medium"),
+                            html.Div(
+                                    html.I(className=f"bi {icon_class} text-primary fs-5"),
+                                    className="bg-light p-2 rounded-circle d-flex align-items-center justify-content-center",
+                                    style={"width": "40px", "height": "40px", "width": "fit-content"},
+                                    ),
+                        ],
+                        className="d-flex justify-content-between align-items-center mb-2",
                         ),
-                    ],
-                    className="d-flex justify-content-between align-items-center mb-2",
-                ),
                 html.H3(value, className="fw-bold mb-2 text-dark"),
                 html.Div(
                     [
@@ -50,7 +50,7 @@ def create_kpi_card1(title, value, change, icon_class, is_positive=True, texto="
 
 datos = get_monthly_sales_summary()
 EV_max=datos["EV_acumulado"].max()
-print(f"El valor máximo de EV_acumulado es: {datos['EV_acumulado'].iloc[-1]}")
+print(f"El valor máximo de EV_acumulado es: {datos['EV_acumulado'].iloc[-1]:.0f}")
 porc_avance_EV = (EV_max / 33000000) * 100
 
 datos["Fecha"] = pd.to_datetime(datos["Fecha"])  # solo si la columna aún no es datetime

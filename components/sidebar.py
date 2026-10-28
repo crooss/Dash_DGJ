@@ -59,6 +59,14 @@ def create_sidebar():
                         href="/avance-waterfall",
                         active="exact",
                     ),
+                    dbc.NavLink(
+                        [
+                            html.I(className="bi bi-percent"),
+                            html.Span("KPI Actividades"),
+                        ],
+                        href="/cards",
+                        active="exact",
+                    ),
                     # dbc.NavLink(
                     #     [
                     #         html.I(className="bi bi-grid-1x2-fill"),
