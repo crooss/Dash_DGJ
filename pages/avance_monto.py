@@ -9,7 +9,7 @@ from data.sample_data import get_monthly_sales_summary
 
 dash.register_page(__name__, path="/", name="Avance por monto ejecutado")
 
-def create_kpi_card1(title, value, change, icon_class, is_positive=True, texto=""):
+def create_kpi_card1(title, value, change, icon_class, is_positive=True, texto="", value_id=None):
     """Genera una tarjeta KPI moderna."""
     badge_color = "success" if is_positive else "danger"
     badge_icon = "bi-arrow-up-right" if is_positive else "bi-arrow-down-right"
@@ -28,7 +28,11 @@ def create_kpi_card1(title, value, change, icon_class, is_positive=True, texto="
                         ],
                         className="d-flex justify-content-between align-items-center mb-2",
                         ),
-                html.H3(value, className="fw-bold mb-2 text-dark"),
+                html.H3(
+                    value,
+                    className="fw-bold mb-2 text-dark",
+                    **({"id": value_id} if value_id is not None else {}),
+                ),
                 html.Div(
                     [
                         dbc.Badge(
@@ -67,7 +71,7 @@ layout = html.Div(
         
         dbc.Row(
             [
-                dbc.Col(create_kpi_card1("Ingresos Totales", f"${EV_max:,.0f}", f"+{porc_avance_EV:.1f}%", "bi-currency-dollar", texto='% general'), md=6, lg=3, className="mb-4"),
+                dbc.Col(create_kpi_card1("Ingresos Totales", f"${EV_max:,.0f}", f"+{porc_avance_EV:.1f}%", "bi-currency-dollar", texto='% general', value_id="kpi-ev-max"), md=6, lg=3, className="mb-4"),
                 dbc.Col(create_kpi_card1("Fecha de corte", fecha_max.strftime('%d-%B-%Y'), "", "bi-calendar3", texto='fecha'), md=6, lg=3, className="mb-4"),
                 # dbc.Col(create_kpi_card1("Tasa de Conversión", "3.24%", "-0.4%", "bi-graph-up-arrow", is_positive=False), md=6, lg=3, className="mb-4"),
                 # dbc.Col(create_kpi_card1("Pedidos Activos", "312", "+15.3%", "bi-bag-check"), md=6, lg=3, className="mb-4"),
@@ -90,8 +94,37 @@ layout = html.Div(
             fluid=True,
             className="mt-4",
         ),
-    ]
+        html.Div(id="anim-dummy", style={"display": "none"}),
+        dcc.Store(id="store-ev-max", data=float(EV_max))
+    ],
 )
+
+
+dash.clientside_callback(
+    """
+    function(valor) {
+        const el = document.getElementById('kpi-ev-max');
+        if (!el || valor === null || valor === undefined) {
+            return window.dash_clientside.no_update;
+        }
+        const duracion = 1500;
+        const inicio = performance.now();
+        const fmt = n => '$' + Math.round(n).toLocaleString('es-MX');
+
+        function paso(ahora) {
+            const t = Math.min((ahora - inicio) / duracion, 1);
+            const ease = 1 - Math.pow(1 - t, 3);
+            el.textContent = fmt(valor * ease);
+            if (t < 1) requestAnimationFrame(paso);
+        }
+        requestAnimationFrame(paso);
+        return window.dash_clientside.no_update;
+    }
+    """,
+    Output("kpi-ev-max", "className"),   # salida dummy, no se usa
+    Input("store-ev-max", "data"),
+)
+
 
 # Simple callback that returns an empty figure for now
 @callback(Output("avance-monto-graph", "figure"), Input("avance-monto-graph", "id"))
@@ -130,4 +163,3 @@ def update_figure(_): # type: ignore
                     dtick="M1",
                     tickformat="%b\n%Y")
     return fig
-
