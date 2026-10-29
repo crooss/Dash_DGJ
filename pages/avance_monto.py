@@ -48,9 +48,6 @@ def create_kpi_card1(title, value, change, icon_class, is_positive=True, texto="
         ),
         className="kpi-card h-100",
     )
-# Register the page with Dash Pages
-# The URL path will be '/avance-monto'
-# The display name appears in the browser tab
 
 datos = get_monthly_sales_summary()
 EV_max=datos["EV_acumulado"].max()
@@ -61,10 +58,6 @@ datos["Fecha"] = pd.to_datetime(datos["Fecha"])  # solo si la columna aún no es
 fecha_max = datos["Fecha"].max()
 print(f"Fecha máxima en los datos: {fecha_max.strftime('%d-%B-%Y')}")
 
-
-
-# Placeholder data: you can replace with real data source later
-# For now, we show a simple message and a chart area
 layout = html.Div(
     [
         create_navbar("Avance por monto ejecutado"),
