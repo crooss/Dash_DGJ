@@ -50,7 +50,6 @@ def create_kpi_card1(title, value, change, icon_class, is_positive=True, texto="
     )
 
 datos = get_monthly_sales_summary()
-print(datos.tail())  # Muestra las últimas filas del DataFrame para verificar los datos cargados
 EV_max=datos["EV_acumulado"].max()
 print(f"El valor máximo de EV_acumulado es: {datos['EV_acumulado'].iloc[-1]:.0f}")
 porc_avance_EV = (EV_max / 33000000) * 100
