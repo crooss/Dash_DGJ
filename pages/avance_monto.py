@@ -52,7 +52,7 @@ def create_kpi_card1(title, value, change, icon_class, is_positive=True, texto="
 datos = get_monthly_sales_summary()
 EV_max=datos["EV_acumulado"].max()
 print(f"El valor máximo de EV_acumulado es: {datos['EV_acumulado'].iloc[-1]:.0f}")
-porc_avance_EV = (EV_max / 33000000) * 100
+porc_avance_EV = (EV_max / 33057580) * 100
 
 datos["Fecha"] = pd.to_datetime(datos["Fecha"])  # solo si la columna aún no es datetime
 fecha_max = datos["Fecha"].max()
